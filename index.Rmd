@@ -5,12 +5,12 @@ date: "July 6, 2026"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-url: https://bioinformaticsdotca.github.io/ZAMBI-RDM/ 
+url: https://benfish404.github.io/ZAMBI-RDM/ 
 cover-image: img/bioinformatics_logo.png
 description: |
-  Workshop website for the 2026 Research Data Management Canadian Bioinformatics Workshop
+  Workshop website for the ZAMBI 2026 Research Data Management Workshop
 link-citations: yes
-github-repo: bioinformaticsdotca/ZAMBI-RDM
+github-repo: benfish404/ZAMBI-RDM
 favicon: img/favicon.ico
 ---
 
@@ -24,9 +24,7 @@ Welcome to the 2026 Research Data Management Canadian Bioinformatics Workshop we
 
 <!--[You can find your pre-work here.](LINK TO PREWORK)-->
 
-## Class Photo
 
-Coming soon! 
 
 ## Schedule
 
