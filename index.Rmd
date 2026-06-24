@@ -22,6 +22,15 @@ Welcome to the 2026 Research Data Management Canadian Bioinformatics Workshop we
 
 ## Pre-work
 
+You will need to create an account on [GitHub](https://github.com/)
+
+You will need to install the following programs:
+
+- [GitHub Desktop](https://desktop.github.com/download/)
+- [Visual Studio Code](https://code.visualstudio.com/download?_exp_download=fb315fc982)
+
+
+
 <!--[You can find your pre-work here.](LINK TO PREWORK)-->
 
 
