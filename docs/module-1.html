@@ -121,6 +121,13 @@
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lab"><i class="fa fa-check"></i>Lab</a>
 <ul>
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#creating-a-new-repository"><i class="fa fa-check"></i>Creating a new repository</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#cloning-your-new-repository"><i class="fa fa-check"></i>Cloning your new repository</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#tracking-changes-existing-files"><i class="fa fa-check"></i>Tracking Changes: Existing Files</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#tracking-changes-new-files"><i class="fa fa-check"></i>Tracking Changes: New Files</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#tracking-changes-removing-files"><i class="fa fa-check"></i>Tracking Changes: Removing Files</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#configuring-.gitignore"><i class="fa fa-check"></i>Configuring .gitignore</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#creating-a-branch"><i class="fa fa-check"></i>Creating a Branch</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#merging-a-branch"><i class="fa fa-check"></i>Merging a Branch</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html"><i class="fa fa-check"></i>Module 2</a>
@@ -208,8 +215,96 @@
 <p>Finally, we can create our repository by clicking the green button!</p>
 <p>Once the repo is successfully created, you will be greeted with a page that looks similar to this. Notice that your <code>README.md</code> file was populated with a description if you provided one in the previous step. Also notice that the <strong>About</strong> section of your repo, on the right, also contains this description if you provided one.</p>
 <p><img src="img/m1/0004.png" /></p>
-
 </div>
+</div>
+<div id="cloning-your-new-repository" class="section level3 hasAnchor">
+<h3>Cloning your new repository<a href="module-1.html#cloning-your-new-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now, open the GitHub Desktop app. If you have not already, you will need to sign in to your GitHub account.</p>
+<p>To work in our repo from our local machine, we will have to obtain a copy to edit from GitHub (i.e., “clone” the repo). To do this, look along the top toolbar, and navigate to <code>File</code>, then <code>Clone repository...</code>.</p>
+<p><img src="img/m1/0005.png" /></p>
+<p>This will bring you to an interface with which you can find your repo. All of the repos you have access to should show up in the list. You can also use the search bar to locate your repository if you have many to sort through.</p>
+<p>When cloning the repository, it will have to go somewhere on your local machine’s file system. I have a folder called <code>github</code> within my <code>Documents</code> folder where I store all of my repos. You should choose a local path that works for you. Once you click <strong>Clone</strong>, your desired repo will be downloaded.</p>
+<p><img src="img/m1/0006.png" /></p>
+<p>You will be greeted with a screen that looks similar to this. This is the interface which we will be using to track changes throughout our project.</p>
+<p><img src="img/m1/0007.png" /></p>
+<p>To see where our repo is stored on our machine, we can use the <strong>Show in Explorer</strong> button, which will open our file explorer in a new window. Within this directory, we should be able to see our <code>README.md</code> file, which is the only item we have added so far.</p>
+<p>Note, if you have configured your explorer to show hidden items, you will also see a hidden <code>.git</code> directory which contains configurations for the repo including version control data and commit history. We can ignore this directory.</p>
+<p><img src="img/m1/0008.png" /></p>
+</div>
+<div id="tracking-changes-existing-files" class="section level3 hasAnchor">
+<h3>Tracking Changes: Existing Files<a href="module-1.html#tracking-changes-existing-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s open the <code>README.md</code> file and make some changes. We will do this with a text editor. On Windows this will be Notepad, and on Mac this will be TextEdit. You may need to right-click the file and use the “Open with” option to select your text editor.</p>
+<p>Once we open the file, we will see its contents.</p>
+<p><img src="img/m1/0009.png" /></p>
+<p>If you are on Windows and the font sizes are different within the file, your Notepad is rendering the markdown format. To fix this, click the “Formatted” button on the toolbar at the bottom of the Window to switch to “Markdown syntax.”</p>
+<p>Let’s change the file contents. Replace the contents on line 2 with the following:</p>
+<pre><code>The start of something great!</code></pre>
+<p>If we go back to our GitHub Desktop interface, it will look the same. This is because it has not yet detected that we have modified our file. For GitHub to track our changes, we actually need to save them to the file first.</p>
+<p>Save the contents of our modified <code>README.md</code> file. Now, when we go back to GitHub Desktop, we can see that the interface has changed to reflect our changes.</p>
+<p><img src="img/m1/0010.png" /></p>
+<p>Now, the left pane indicates that there is one changed file, which is our <code>README.md</code>. We can click on our file to inspect the changes. This type of view is called a <strong>diff</strong>, wherein we can compare the changes that have been made to our file compared to its previous version. This screen can tell us lots of granular information about the changes to our file.</p>
+<p>The top line, above our file, reads <code>@@ -1,2 +1,2 @@</code> This notation summarizes the changes to the file.</p>
+<ul>
+<li>The <code>@@</code> parts denote the start and end of the “diff hunk,” which in lay terms is a section of the file that has been modified.</li>
+<li>The <code>-1,2</code> part indicates that one line was removed starting at line number 2.</li>
+<li>The subsequent <code>+1,2</code> part indicates that one line was added starting at line number 2.</li>
+</ul>
+<p>We can also see this information visually: The <strong>red</strong> highlight indicates that this line was removed. The <strong>green</strong> highlight indicates that this line was inserted. This is because Git treats the modification of any line as a removal and subsequent insertion.</p>
+<p>Let’s suppose we’ve decided we want to update our description once again. In the text editor, replace the contents of line number 2 with the following:</p>
+<pre><code>A wizard is never late, he arrives precisely when he means to.</code></pre>
+<p>Now when we save the file, our GitHub screen will look like this:</p>
+<p><img src="img/m1/0011.png" />
+There are two things to notice about this:</p>
+<ul>
+<li>Our previous line is no longer present in the diff view. This is because we did not stage or commit our changes to our repo. The diff only compares our local changes to the version we received when we cloned (or pulled) the origin.</li>
+<li>There is highlighting over most, but not all, of the diff of line 2. This is because both lines end the same way, <code>o.</code>, so this is interpreted as that part of the line being preserved.</li>
+</ul>
+</div>
+<div id="tracking-changes-new-files" class="section level3 hasAnchor">
+<h3>Tracking Changes: New Files<a href="module-1.html#tracking-changes-new-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Within your text editor, create a new text file. This can be done with <code>Ctrl+N</code> on Windows or <code>Cmd+N</code> on Mac.</p>
+<p>You don’t need to put anything inside the text file. Go ahead and save this file <strong>in your local repo directory</strong> as <code>newfile</code>. A handy shortcut for saving files in the text editor is <code>Ctrl+S</code> or <code>Cmd+S</code></p>
+<p>Now, when we look at the GitHub Desktop interface, we see that another item, being our <code>newfile.txt</code>, has been added to the left pane. The icon next to this file is a green box with a plus sign <strong>+</strong>, visually telling us that this file has been added to the repo. With these icons we can quickly differentiate between files that have been created or modified.</p>
+<p><img src="img/m1/0012.png" />
+Currently, we do not see a diff for this file because it is empty. Let’s add some text to <code>newfile.txt</code>. You can copy and paste the following, then save your changes:</p>
+<pre><code>Look, Ma, no hands!
+</code></pre>
+<p><img src="img/m1/0013.png" /></p>
+<p>Now that our file has some contents, the diff is populated with our changes. The diff hunk notation (above the diff viewer) indicates that we <em>“removed nothing at line zero,”</em> which is another way to say that we removed the emptiness of the file, or rather, that the file is no longer empty. It also indicates that we added content on line 1.</p>
+<p>If you did not press <code>enter</code> after the text, you may get a warning in your Git diff saying <em>“no newline at end of file”</em>. Practically, this will not affect us but it is best practice to end files with newlines to ensure compatibility between programs.</p>
+</div>
+<div id="tracking-changes-removing-files" class="section level3 hasAnchor">
+<h3>Tracking Changes: Removing Files<a href="module-1.html#tracking-changes-removing-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Open your file explorer and navigate to the repo directory. Delete the <code>README.md</code> file. Now, let’s see how this shows up in GitHub Desktop:</p>
+<p><img src="img/m1/0014.png" /></p>
+<p>We can see in the left pane that the yellow icon has been replaced with a red square containing a minus <strong>-</strong> sign. This tells us that Git has tracked the file as being removed. The diff view for this file shows us that all of its lines have been removed.</p>
+<p>Let’s now commit our changes to the repository. Ensure that our changes are <strong>staged</strong> by having checkmarks next to the filenames. Then, add a commit message, and an optional description. It is best practice to be descriptive of the changes you have made.</p>
+<p><img src="img/m1/0015.png" /></p>
+<p>Once these fields have been populated, we can commit our changes to the <strong>main</strong> branch of our repo!</p>
+<p><img src="img/m1/0016.png" /></p>
+<p>Note that our app now tells us that there are no local changes. This is because all of our files are up-to-date with the most recent commit.</p>
+<p>Recall that commits are still stored on our local machine, and not yet pushed to the remote repo. To do this, we have to click the <strong>Push origin</strong> button underneath the top toolbar. The “1<span class="math inline">\(\uparrow\)</span>” icon tells us that there is one commit that will be pushed.</p>
+<p>Once you click <strong>Push origin</strong>, our changes will be sent to the remote repository. We can now visit the GitHub repo in the browser to see what has changed.</p>
+<p><img src="img/m1/0017.png" /></p>
+<p>We can also see the commit history for our repo</p>
+<p><img src="img/m1/0018.png" /></p>
+</div>
+<div id="configuring-.gitignore" class="section level3 hasAnchor">
+<h3>Configuring .gitignore<a href="module-1.html#configuring-.gitignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="img/m1/0020.png" width="400"></p>
+<p><img src="img/m1/0021.png" /></p>
+<p><img src="img/m1/0022.png" /></p>
+<p><img src="img/m1/0023.png" /></p>
+<p><img src="img/m1/0024.png" /></p>
+<p><img src="img/m1/0025.png" /></p>
+<p><img src="img/m1/0026.png" /></p>
+</div>
+<div id="creating-a-branch" class="section level3 hasAnchor">
+<h3>Creating a Branch<a href="module-1.html#creating-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="merging-a-branch" class="section level3 hasAnchor">
+<h3>Merging a Branch<a href="module-1.html#merging-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
 </div>
 </div>
 </div>
@@ -273,6 +368,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

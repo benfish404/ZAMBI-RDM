@@ -76,6 +76,156 @@ Once the repo is successfully created, you will be greeted with a page that look
 ![](img/m1/0004.png)
 
 
+### Cloning your new repository
+
+Now, open the GitHub Desktop app. If you have not already, you will need to sign in to your GitHub account.
+
+
+To work in our repo from our local machine, we will have to obtain a copy to edit from GitHub (i.e., "clone" the repo). To do this, look along the top toolbar, and navigate to `File`, then `Clone repository...`.
+
+![](img/m1/0005.png)
+
+This will bring you to an interface with which you can find your repo. All of the repos you have access to should show up in the list. You can also use the search bar to locate your repository if you have many to sort through.
+
+When cloning the repository, it will have to go somewhere on your local machine's file system. I have a folder called `github` within my `Documents` folder where I store all of my repos. You should choose a local path that works for you. Once you click **Clone**, your desired repo will be downloaded.
+
+![](img/m1/0006.png)
+
+You will be greeted with a screen that looks similar to this. This is the interface which we will be using to track changes throughout our project.
+
+![](img/m1/0007.png)
+
+To see where our repo is stored on our machine, we can use the **Show in Explorer** button, which will open our file explorer in a new window. Within this directory, we should be able to see our `README.md` file, which is the only item we have added so far.
+
+Note, if you have configured your explorer to show hidden items, you will also see a hidden `.git` directory which contains configurations for the repo including version control data and commit history. We can ignore this directory.
+
+![](img/m1/0008.png)
+
+### Tracking Changes: Existing Files
+
+Let's open the `README.md` file and make some changes. We will do this with a text editor. On Windows this will be Notepad, and on Mac this will be TextEdit. You may need to right-click the file and use the "Open with" option to select your text editor.
+
+Once we open the file, we will see its contents.
+
+![](img/m1/0009.png) 
+
+If you are on Windows and the font sizes are different within the file, your Notepad is rendering the markdown format. To fix this, click the "Formatted" button on the toolbar at the bottom of the Window to switch to "Markdown syntax."
+
+Let's change the file contents. Replace the contents on line 2 with the following:
+
+```
+The start of something great!
+```
+
+If we go back to our GitHub Desktop interface, it will look the same. This is because it has not yet detected that we have modified our file. For GitHub to track our changes, we actually need to save them to the file first.
+
+Save the contents of our modified `README.md` file. Now, when we go back to GitHub Desktop, we can see that the interface has changed to reflect our changes.
+
+![](img/m1/0010.png) 
+
+Now, the left pane indicates that there is one changed file, which is our `README.md`. We can click on our file to inspect the changes. This type of view is called a **diff**, wherein we can compare the changes that have been made to our file compared to its previous version. This screen can tell us lots of granular information about the changes to our file.
+
+The top line, above our file, reads `@@ -1,2 +1,2 @@` This notation summarizes the changes to the file. 
+
+* The `@@` parts denote the start and end of the "diff hunk," which in lay terms is a section of the file that has been modified.
+* The `-1,2` part indicates that one line was removed starting at line number 2.
+* The subsequent `+1,2` part indicates that one line was added starting at line number 2.
+  
+We can also see this information visually: The **red** highlight indicates that this line was removed. The **green** highlight indicates that this line was inserted. This is because Git treats the modification of any line as a removal and subsequent insertion.
+
+Let's suppose we've decided we want to update our description once again. In the text editor, replace the contents of line number 2 with the following:
+
+```
+A wizard is never late, he arrives precisely when he means to.
+```
+
+Now when we save the file, our GitHub screen will look like this:
+
+![](img/m1/0011.png) 
+There are two things to notice about this:
+
+* Our previous line is no longer present in the diff view. This is because we did not stage or commit our changes to our repo. The diff only compares our local changes to the version we received when we cloned (or pulled) the origin.
+* There is highlighting over most, but not all, of the diff of line 2. This is because both lines end the same way, `o.`, so this is interpreted as that part of the line being preserved.
+
+### Tracking Changes: New Files
+
+Within your text editor, create a new text file. This can be done with `Ctrl+N` on Windows or `Cmd+N` on Mac.
+
+You don't need to put anything inside the text file. Go ahead and save this file **in your local repo directory** as `newfile`. A handy shortcut for saving files in the text editor is `Ctrl+S` or `Cmd+S`
+
+Now, when we look at the GitHub Desktop interface, we see that another item, being our `newfile.txt`, has been added to the left pane. The icon next to this file is a green box with a plus sign **+**, visually telling us that this file has been added to the repo. With these icons we can quickly differentiate between files that have been created or modified.
+
+![](img/m1/0012.png)
+Currently, we do not see a diff for this file because it is empty. Let's add some text to `newfile.txt`. You can copy and paste the following, then save your changes:
+
+```
+Look, Ma, no hands!
+
+```
+
+![](img/m1/0013.png)
+
+Now that our file has some contents, the diff is populated with our changes. The diff hunk notation (above the diff viewer) indicates that we _"removed nothing at line zero,"_ which is another way to say that we removed the emptiness of the file, or rather, that the file is no longer empty. It also indicates that we added content on line 1.
+
+If you did not press `enter` after the text, you may get a warning in your Git diff saying _"no newline at end of file"_. Practically, this will not affect us but it is best practice to end files with newlines to ensure compatibility between programs.
+
+### Tracking Changes: Removing Files
+
+Open your file explorer and navigate to the repo directory. Delete the `README.md` file. Now, let's see how this shows up in GitHub Desktop:
+
+![](img/m1/0014.png) 
+
+We can see in the left pane that the yellow icon has been replaced with a red square containing a minus **-** sign. This tells us that Git has tracked the file as being removed. The diff view for this file shows us that all of its lines have been removed.
+
+
+Let's now commit our changes to the repository. Ensure that our changes are **staged** by having checkmarks next to the filenames. Then, add a commit message, and an optional description. It is best practice to be descriptive of the changes you have made.
+
+![](img/m1/0015.png)
+
+Once these fields have been populated, we can commit our changes to the **main** branch of our repo!
+
+![](img/m1/0016.png)
+
+
+Note that our app now tells us that there are no local changes. This is because all of our files are up-to-date with the most recent commit.
+
+Recall that commits are still stored on our local machine, and not yet pushed to the remote repo. To do this, we have to click the **Push origin** button underneath the top toolbar. The "1\(\uparrow \)" icon tells us that there is one commit that will be pushed.
+
+Once you click **Push origin**, our changes will be sent to the remote repository. We can now visit the GitHub repo in the browser to see what has changed.
+
+![](img/m1/0017.png) 
+
+
+We can also see the commit history for our repo
+
+![](img/m1/0018.png)
+
+### Configuring .gitignore
 
 
 
+<img src="img/m1/0020.png" width="400">
+
+
+
+![](img/m1/0021.png) 
+
+
+
+![](img/m1/0022.png) 
+
+
+![](img/m1/0023.png) 
+
+![](img/m1/0024.png) 
+
+![](img/m1/0025.png) 
+
+![](img/m1/0026.png) 
+
+### Creating a Branch
+
+
+
+
+### Merging a Branch
