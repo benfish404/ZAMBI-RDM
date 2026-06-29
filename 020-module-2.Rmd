@@ -3,6 +3,5 @@
 ## Lecture
 
 Hello, world!
-This is a test!!!
 
 ## Lab

@@ -118,7 +118,10 @@
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
-<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lab"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lab"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#creating-a-new-repository"><i class="fa fa-check"></i>Creating a new repository</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html"><i class="fa fa-check"></i>Module 2</a>
 <ul>
@@ -164,7 +167,50 @@
 </div>
 <div id="lab" class="section level2 hasAnchor">
 <h2>Lab<a href="module-1.html#lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="creating-a-new-repository" class="section level3 hasAnchor">
+<h3>Creating a new repository<a href="module-1.html#creating-a-new-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can create a new repository on your personal account or any organization where you have sufficient permissions.</p>
+<p>On the GitHub website, you can create a new repository by clicking the plus “<strong>+</strong>” icon on the top right toolbar. You can alternatively navigate to <a href="https://github.com/new" target="_blank">https://github.com/new</a></p>
+<p><img src="img/m1/0000.png" /></p>
+<p>Once on the <strong>Create a new repository</strong> page, you can start configuring your repo. You should first verify that your account is the repo owner. If you are part of an <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations
+" target="_blank">organization</a>, you can instead choose to make that organization the owner.</p>
+<p>GitHub always suggests a repository name you can use, or you can come up with a name on your own. In practice, it is helpful to name your repository something descriptive, but for demonstration purposes we can use the suggested name.</p>
+<p><img src="img/m1/0001.png" /></p>
+<p>On the topic of repo names, different users can use the exact same repo name, but each user can only have unique repository names associated with their account. This means that everyone could have one repo called “ZAMBI-RDM”.</p>
+<p>Populate the name and description fields as needed. Descriptions are generally recommended but not required. Clicking on the suggested name (in this case, <code>crispy-pancake</code>) will automatically fill the name field.</p>
+<p><img src="img/m1/0002.png" /></p>
+<p>Now, we want to configure our repo. You will be met with several options under this section.</p>
+<p><img src="img/m1/0003.png" /></p>
+<div id="visibility" class="section level4 hasAnchor">
+<h4>Visibility<a href="module-1.html#visibility" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since for this demonstration our repository will not contain any sensitive information, it is okay to set our repo visibility to <strong>public</strong>. There are other scenarios where you may want to consider using a private repository, and you can read more about that <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories#security-considerations-for-repository-visibility" target="_blank">here</a>.</p>
+</div>
+<div id="templates" class="section level4 hasAnchor">
+<h4>Templates<a href="module-1.html#templates" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can generate a new repository with the same directory structure and files as an existing repository. This can be useful in certain scenarios, such as reducing manual configuration of repos. You can learn more about templates <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template" target="_blank">here</a></p>
+<p>However, in our case, we will not use a template.</p>
+</div>
+<div id="readme" class="section level4 hasAnchor">
+<h4>README<a href="module-1.html#readme" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As the name suggests, <strong>README</strong> files are intended for other people to read in order to understand your project. README files are typically found in the top-level directory, meaning it is found within the folder that contains the entirety of your repo. A README file should be created and stored in a file format that is easily readable, such as Markdown or even plain text. The GitHub Docs provides a comprehensive overview of README files <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes" target="_blank">here</a></p>
+<p>We will initialize our repo with a README file, which we will edit later.</p>
+</div>
+<div id="gitignore" class="section level4 hasAnchor">
+<h4>.gitignore<a href="module-1.html#gitignore" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can configure Git to ignore files you don’t want to track changes for with a <code>.gitignore</code> file. This can be useful when you are generating temporary files or outputs that you do not want to share with others.</p>
+<p>There are other methods of ignoring files which will not be covered in this tutorial, but you can read more <a href="https://docs.github.com/en/get-started/git-basics/ignoring-files" target="_blank">here</a></p>
+<p>The dropdown menu provides several templates for populating a <code>.gitignore</code> file, however we will manually create this file later.</p>
+</div>
+<div id="license" class="section level4 hasAnchor">
+<h4>License<a href="module-1.html#license" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>By default, you are considered the copyright holder of the contents you create within your repo. For open-source projects, you would instead want to choose a license for your repo that reflects your project’s intended use. You can learn more about licensing your repository <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank">here</a>.</p>
+<p>For our intents and purposes, we will accept the default of no license.</p>
+<p>Finally, we can create our repository by clicking the green button!</p>
+<p>Once the repo is successfully created, you will be greeted with a page that looks similar to this. Notice that your <code>README.md</code> file was populated with a description if you provided one in the previous step. Also notice that the <strong>About</strong> section of your repo, on the right, also contains this description if you provided one.</p>
+<p><img src="img/m1/0004.png" /></p>
 
+</div>
+</div>
 </div>
 </div>
             </section>
