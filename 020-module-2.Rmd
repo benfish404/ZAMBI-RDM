@@ -2,6 +2,10 @@
 
 ## Lecture
 
+<<<<<<< HEAD
+Hello, world!
+=======
 This is a test!!!
+>>>>>>> 9b539fb0a6efeb64f6cdb2d8d2c96e949a5ffb54
 
 ## Lab
