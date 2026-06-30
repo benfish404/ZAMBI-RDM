@@ -178,7 +178,7 @@ Open your file explorer and navigate to the repo directory. Delete the `README.m
 We can see in the left pane that the yellow icon has been replaced with a red square containing a minus **-** sign. This tells us that Git has tracked the file as being removed. The diff view for this file shows us that all of its lines have been removed.
 
 
-Let's now commit our changes to the repository. Ensure that our changes are **staged** by having checkmarks next to the filenames. Then, add a commit message, and an optional description. It is best practice to be descriptive of the changes you have made.
+Let's now **commit** our changes to the repository. Ensure that our changes are **staged** by having checkmarks next to the filenames. Then, add a commit message, and an optional description. It is best practice to be descriptive of the changes you have made.
 
 ![](img/m1/0015.png)
 
@@ -202,35 +202,96 @@ We can also see the commit history for our repo
 
 ### Configuring .gitignore
 
+First, let's make another change to our `newfile.txt`. Open this file in your text editor, and change the text: I have chosen `Look, Ma, no brains!`. Once you save this file, we will see that `newfile.txt` is in our staging area of the desktop app, and has the yellow indicator showing that the file has been modified.
 
+
+Download a copy of the cookies.md file and the guacamole.md file, and add them to your repo. 
+
+Now, we will configure our **.gitignore** for our repo.
+
+IF you right-click on `newfile.txt` in the staging area, you have several options. We want to use the "Ignore file (add to .gitignore) option. Add `newfile.txt` to our .gitignore.
 
 <img src="img/m1/0020.png" width="400">
 
 
-
 ![](img/m1/0021.png) 
+After this, you will see that GitHub Desktop automatically created a `.gitignore` file for us. You will also see that it populated this file with `newfile.txt`, telling us that we successfully added this file to `.gitignore`.
+
 On Windows, you may see a yellow warning that line endings have changed from `LF` to `CRLF`. This happens because the `.gitignore` was created with Unix line endings (LF) by GitHub Desktop, but it gets modified use Windows line endings (CRLF) automatically.
 
+Now, by accessing the same options through the right-click menu, also add `guacamole.md` to the `.gitignore` file.
+
+Question: What is another way that you could add a file, such as `guacamole.md` to the `.gitignore` file?
+Answer: You could open the .gitignore file in another text editor and manually type the file name, then save your changes.
+
+When we add `guacamole.md` to our `.gitignore`, it is removed from the staging area entirely: you can see that it is no longer in the left pane.
 
 ![](img/m1/0022.png) 
+
+Click **commit** and push your changes to the remote repo.
+
+If you go to your repo on github.com/your_username/your_repo_name, you will see the results of our changes
 
 
 ![](img/m1/0023.png) 
 
+
+Firstly, you can notice that the `guacamole.md` file was not added to our remote repo. This means that Git ignored changes related to that new file.
+
+NExt, click on `newfile.txt` in your remote repo to view its contents:
+
+
 ![](img/m1/0024.png) 
+
+You can see that the contents of this file **were updated**, even though we added it to our `.gitignore`.
+Question: Why does this happen?
+Answer: This is because Git was already tracking changes for our file. Even if we add it to the .gitignore, the precedent of its changes being tracked overrides us trying to ignore it. If we wanted to ignore the file but keep it in our local repo only, we would have to either 1) add it to .gitignore before it is created, or 2) delete the file, push our changes to the remote repo, and create the file again on our local repo.
+
+
+On our local machine now, let's modify our `.gitignore` file manually. Open the file in a text editor, with which you should see the following:
+
 
 ![](img/m1/0025.png) 
 
+Since our repo will not be ignoring `newfile.txt` anyway, we can remove that item. Let's also remove `guacamole.md` from the `.gitignore` file. After doing this, you should have an empty file, and the diff in GitHub desktop should look like this:
+
+
 ![](img/m1/0026.png) 
+
+Notice now that `guacamole.md` is in the staging area. Now that Git is tracking changes for this file, the creation of this file in our repo is now detected.
+
+Before moving on, **commit** and push these changes.
 
 ### Creating a Branch
 
+
+We will now demonstrate creating a branch of our repo. Recall that a branch begins by taking a snapshot of our repo at that moment in time.
+
+Question: Does the branch copy the local repo or the remote repo?
+Answer: It depends on where you initiate the branch creation from. If you do this locally, as we will in this demonstration, it will create a copy of the local repo. If you create a branch from the remote repo (i.e. on the GitHub website) it will create a copy of that version of the repo. This is why it's important to sync local changes with the remote repo!
+
+Create the new branch by using the "Current branch" dropdown menu, and clikcing on the __New branch__ option.
+
+
 ![](img/m1/0040.png)
+
+We will be prompted to name the branch; let's use `development` to differentiate it from the purpose of our __main__ branch.
+
+Click **Create branch** to finish creating our new branch.
 
 
 ![](img/m1/0041.png)
 
+
+When the branch is successfully created, this will bring us to a familiar interface. However, note that our **Current branch** was automatically switched from __main__ to __development__.
+
+Importantly, this branch only exists locally right now. If we want it to show up in our remote repo, we have to use the **Publish branch** button near the top-center of the interface.
+
 ![](img/m1/0042.png)
+
+Let's make some changes in our `development` branch. Create a new file called `README.md`. In the text editor, this can be done by manually adding the `.md` file extension to the file name, and __not__ saving as a `.txt` file.
+
+Add the following contents to your new markdown (.md) file, and save your changes:
 
 
 ``````
@@ -264,45 +325,105 @@ Set the following environment variables:
 Please open an issue before submitting a pull request.
 ``````
 
+In the staging area, we see that Git is tracking the creation of our file.
 
 
 
 ![](img/m1/0043.png)
 
-You will need to click **publish branch** before switching to another branch, otherwise your local changes will be __brought into the next branch you open__. IF you try to do this on GitHub Desktop, you will get a warning.
+If you have staged changes, as we do here, that are not yet committed, you will need to click **publish branch** before switching to another branch, otherwise your local changes will be __brought into the next branch you open__. If you try to do this on GitHub Desktop, you will get a warning.
+
+Once our branch is published and our changes are committed, we can push these changes to the remote repo.
 
 ### Merging a Branch
 
-
+We currently have two branches of our repo. Let's suppose we want to merge them into one. On GitHub desktop, change your current branch from __development__ to __main__ using the dropdown menu.
 
 ![](img/m1/0044.png)
 
+Once we have successfully changed branches, we can see that our current branch is indicated to be __main__ again.
+
+Note that changes which we made to the __development__ branch are not in the staging area of __main__ since the history of these branches is now being tracked separately.
 
 ![](img/m1/0045.png)
 
+To initiate a merge, start by using the "Choose a branch to merge into main" button at the bottom of the branch dropdown menu.
+
+
 ![](img/m1/0046.png)
+This will give us the option to select our __development__ branch as the one we want to merge into __main__.
+
+When GitHub tries to merge two branches, it uses an algorithm to consolidate changes that were made in the same files (in our case, the `README.md`). In this case where branches with committed changes are being merged, GitHub is able to merge our changes without issue, as indicated by the message at the bottom of the popup. 
+
+Click on **Create a merge commit** to start the merge.
 
 
 ![](img/m1/0047.png)
 
+If successful, we will receive a message above the staging area that we have successfully merged **development** into **main**.
+
+Question: Where does the __development__ branch go after merging it into __main__?
+Answer: The branch still exists. Now, however, its current state is the same as that of the main branch. Importantly, the tracked changes of the development branch are independent of the main branch, BUT the main branch now contains the tracked changes made to both its branch and the development branch.
+
 
 ![](img/m1/0048.png)
 
+Before moving on, **Push** your changes to the remote repo.
+
 #### Conflict Resolution
 
+We are going to intentionally create a merge conflict in order to demonstrate how they are resolved.
+
+In the __main__ branch, open `README.md` and add the following text on line 2:
+
+```
+Status: in progress...
+```
+
+Then, commit these changes to the local repo but DO NOT push them to the remote repo.
+
+
 ![](img/m1/0060.png)
+
+
+Now, switch the **Current branch** from __main__ to our development branch. Similarily, open the `README.md` file and add some __different_ text on line 2, such as:
+
+```
+Status: draft.
+```
 
 ![](img/m1/0061.png)
 
 
+**Commit** these changes to the local repo, but DO NOT push them to the remote repo.
+
+
+Similarily to before, we will initiate a merge of our branches. 
+
+
 ![](img/m1/0062.png)
+
+This time, we will merge our __main__ branch into the __development__ branch, instead of the other way around. This is contrary to common practice but it can be done.
+
+When we are preparing this merge, we get the following warning:
 
 
 ![](img/m1/0063.png)
 
+This means that GitHub has detected we have changes in our local branches that conflict with each other. We can still create a merge commit, however we will have to manually resolve this conflict.
+
+Click on **Create a merge commit** to continue.
+
+We will be greeted with the following popup once we initiate the merge of our branches. Notice that we cannot "Continue merge" until the conflicts are resolved.
+
+There are some external tools which can be used for resolving complicated conflicts, however for our purposes we will fix our `README.md` manually.
+
+To do this, click on "Open in Visual Studio Code"
+
 
 ![](img/m1/0064.png)
 
+You will be greeted by a screen that looks similar to the following:
 
 ![](img/m1/0065.png)
 

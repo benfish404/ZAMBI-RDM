@@ -278,7 +278,7 @@ Currently, we do not see a diff for this file because it is empty. Let’s add s
 <p>Open your file explorer and navigate to the repo directory. Delete the <code>README.md</code> file. Now, let’s see how this shows up in GitHub Desktop:</p>
 <p><img src="img/m1/0014.png" /></p>
 <p>We can see in the left pane that the yellow icon has been replaced with a red square containing a minus <strong>-</strong> sign. This tells us that Git has tracked the file as being removed. The diff view for this file shows us that all of its lines have been removed.</p>
-<p>Let’s now commit our changes to the repository. Ensure that our changes are <strong>staged</strong> by having checkmarks next to the filenames. Then, add a commit message, and an optional description. It is best practice to be descriptive of the changes you have made.</p>
+<p>Let’s now <strong>commit</strong> our changes to the repository. Ensure that our changes are <strong>staged</strong> by having checkmarks next to the filenames. Then, add a commit message, and an optional description. It is best practice to be descriptive of the changes you have made.</p>
 <p><img src="img/m1/0015.png" /></p>
 <p>Once these fields have been populated, we can commit our changes to the <strong>main</strong> branch of our repo!</p>
 <p><img src="img/m1/0016.png" /></p>
@@ -291,20 +291,50 @@ Currently, we do not see a diff for this file because it is empty. Let’s add s
 </div>
 <div id="configuring-.gitignore" class="section level3 hasAnchor">
 <h3>Configuring .gitignore<a href="module-1.html#configuring-.gitignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, let’s make another change to our <code>newfile.txt</code>. Open this file in your text editor, and change the text: I have chosen <code>Look, Ma, no brains!</code>. Once you save this file, we will see that <code>newfile.txt</code> is in our staging area of the desktop app, and has the yellow indicator showing that the file has been modified.</p>
+<p>Download a copy of the cookies.md file and the guacamole.md file, and add them to your repo.</p>
+<p>Now, we will configure our <strong>.gitignore</strong> for our repo.</p>
+<p>IF you right-click on <code>newfile.txt</code> in the staging area, you have several options. We want to use the “Ignore file (add to .gitignore) option. Add <code>newfile.txt</code> to our .gitignore.</p>
 <p><img src="img/m1/0020.png" width="400"></p>
 <p><img src="img/m1/0021.png" />
-On Windows, you may see a yellow warning that line endings have changed from <code>LF</code> to <code>CRLF</code>. This happens because the <code>.gitignore</code> was created with Unix line endings (LF) by GitHub Desktop, but it gets modified use Windows line endings (CRLF) automatically.</p>
+After this, you will see that GitHub Desktop automatically created a <code>.gitignore</code> file for us. You will also see that it populated this file with <code>newfile.txt</code>, telling us that we successfully added this file to <code>.gitignore</code>.</p>
+<p>On Windows, you may see a yellow warning that line endings have changed from <code>LF</code> to <code>CRLF</code>. This happens because the <code>.gitignore</code> was created with Unix line endings (LF) by GitHub Desktop, but it gets modified use Windows line endings (CRLF) automatically.</p>
+<p>Now, by accessing the same options through the right-click menu, also add <code>guacamole.md</code> to the <code>.gitignore</code> file.</p>
+<p>Question: What is another way that you could add a file, such as <code>guacamole.md</code> to the <code>.gitignore</code> file?
+Answer: You could open the .gitignore file in another text editor and manually type the file name, then save your changes.</p>
+<p>When we add <code>guacamole.md</code> to our <code>.gitignore</code>, it is removed from the staging area entirely: you can see that it is no longer in the left pane.</p>
 <p><img src="img/m1/0022.png" /></p>
+<p>Click <strong>commit</strong> and push your changes to the remote repo.</p>
+<p>If you go to your repo on github.com/your_username/your_repo_name, you will see the results of our changes</p>
 <p><img src="img/m1/0023.png" /></p>
+<p>Firstly, you can notice that the <code>guacamole.md</code> file was not added to our remote repo. This means that Git ignored changes related to that new file.</p>
+<p>NExt, click on <code>newfile.txt</code> in your remote repo to view its contents:</p>
 <p><img src="img/m1/0024.png" /></p>
+<p>You can see that the contents of this file <strong>were updated</strong>, even though we added it to our <code>.gitignore</code>.
+Question: Why does this happen?
+Answer: This is because Git was already tracking changes for our file. Even if we add it to the .gitignore, the precedent of its changes being tracked overrides us trying to ignore it. If we wanted to ignore the file but keep it in our local repo only, we would have to either 1) add it to .gitignore before it is created, or 2) delete the file, push our changes to the remote repo, and create the file again on our local repo.</p>
+<p>On our local machine now, let’s modify our <code>.gitignore</code> file manually. Open the file in a text editor, with which you should see the following:</p>
 <p><img src="img/m1/0025.png" /></p>
+<p>Since our repo will not be ignoring <code>newfile.txt</code> anyway, we can remove that item. Let’s also remove <code>guacamole.md</code> from the <code>.gitignore</code> file. After doing this, you should have an empty file, and the diff in GitHub desktop should look like this:</p>
 <p><img src="img/m1/0026.png" /></p>
+<p>Notice now that <code>guacamole.md</code> is in the staging area. Now that Git is tracking changes for this file, the creation of this file in our repo is now detected.</p>
+<p>Before moving on, <strong>commit</strong> and push these changes.</p>
 </div>
 <div id="creating-a-branch" class="section level3 hasAnchor">
 <h3>Creating a Branch<a href="module-1.html#creating-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will now demonstrate creating a branch of our repo. Recall that a branch begins by taking a snapshot of our repo at that moment in time.</p>
+<p>Question: Does the branch copy the local repo or the remote repo?
+Answer: It depends on where you initiate the branch creation from. If you do this locally, as we will in this demonstration, it will create a copy of the local repo. If you create a branch from the remote repo (i.e. on the GitHub website) it will create a copy of that version of the repo. This is why it’s important to sync local changes with the remote repo!</p>
+<p>Create the new branch by using the “Current branch” dropdown menu, and clikcing on the <strong>New branch</strong> option.</p>
 <p><img src="img/m1/0040.png" /></p>
+<p>We will be prompted to name the branch; let’s use <code>development</code> to differentiate it from the purpose of our <strong>main</strong> branch.</p>
+<p>Click <strong>Create branch</strong> to finish creating our new branch.</p>
 <p><img src="img/m1/0041.png" /></p>
+<p>When the branch is successfully created, this will bring us to a familiar interface. However, note that our <strong>Current branch</strong> was automatically switched from <strong>main</strong> to <strong>development</strong>.</p>
+<p>Importantly, this branch only exists locally right now. If we want it to show up in our remote repo, we have to use the <strong>Publish branch</strong> button near the top-center of the interface.</p>
 <p><img src="img/m1/0042.png" /></p>
+<p>Let’s make some changes in our <code>development</code> branch. Create a new file called <code>README.md</code>. In the text editor, this can be done by manually adding the <code>.md</code> file extension to the file name, and <strong>not</strong> saving as a <code>.txt</code> file.</p>
+<p>Add the following contents to your new markdown (.md) file, and save your changes:</p>
 <pre><code># Project Notes
 
 ## Overview
@@ -333,23 +363,52 @@ Set the following environment variables:
 ## Contributing
 
 Please open an issue before submitting a pull request.</code></pre>
+<p>In the staging area, we see that Git is tracking the creation of our file.</p>
 <p><img src="img/m1/0043.png" /></p>
-<p>You will need to click <strong>publish branch</strong> before switching to another branch, otherwise your local changes will be <strong>brought into the next branch you open</strong>. IF you try to do this on GitHub Desktop, you will get a warning.</p>
+<p>If you have staged changes, as we do here, that are not yet committed, you will need to click <strong>publish branch</strong> before switching to another branch, otherwise your local changes will be <strong>brought into the next branch you open</strong>. If you try to do this on GitHub Desktop, you will get a warning.</p>
+<p>Once our branch is published and our changes are committed, we can push these changes to the remote repo.</p>
 </div>
 <div id="merging-a-branch" class="section level3 hasAnchor">
 <h3>Merging a Branch<a href="module-1.html#merging-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We currently have two branches of our repo. Let’s suppose we want to merge them into one. On GitHub desktop, change your current branch from <strong>development</strong> to <strong>main</strong> using the dropdown menu.</p>
 <p><img src="img/m1/0044.png" /></p>
+<p>Once we have successfully changed branches, we can see that our current branch is indicated to be <strong>main</strong> again.</p>
+<p>Note that changes which we made to the <strong>development</strong> branch are not in the staging area of <strong>main</strong> since the history of these branches is now being tracked separately.</p>
 <p><img src="img/m1/0045.png" /></p>
-<p><img src="img/m1/0046.png" /></p>
+<p>To initiate a merge, start by using the “Choose a branch to merge into main” button at the bottom of the branch dropdown menu.</p>
+<p><img src="img/m1/0046.png" />
+This will give us the option to select our <strong>development</strong> branch as the one we want to merge into <strong>main</strong>.</p>
+<p>When GitHub tries to merge two branches, it uses an algorithm to consolidate changes that were made in the same files (in our case, the <code>README.md</code>). In this case where branches with committed changes are being merged, GitHub is able to merge our changes without issue, as indicated by the message at the bottom of the popup.</p>
+<p>Click on <strong>Create a merge commit</strong> to start the merge.</p>
 <p><img src="img/m1/0047.png" /></p>
+<p>If successful, we will receive a message above the staging area that we have successfully merged <strong>development</strong> into <strong>main</strong>.</p>
+<p>Question: Where does the <strong>development</strong> branch go after merging it into <strong>main</strong>?
+Answer: The branch still exists. Now, however, its current state is the same as that of the main branch. Importantly, the tracked changes of the development branch are independent of the main branch, BUT the main branch now contains the tracked changes made to both its branch and the development branch.</p>
 <p><img src="img/m1/0048.png" /></p>
+<p>Before moving on, <strong>Push</strong> your changes to the remote repo.</p>
 <div id="conflict-resolution" class="section level4 hasAnchor">
 <h4>Conflict Resolution<a href="module-1.html#conflict-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We are going to intentionally create a merge conflict in order to demonstrate how they are resolved.</p>
+<p>In the <strong>main</strong> branch, open <code>README.md</code> and add the following text on line 2:</p>
+<pre><code>Status: in progress...</code></pre>
+<p>Then, commit these changes to the local repo but DO NOT push them to the remote repo.</p>
 <p><img src="img/m1/0060.png" /></p>
+<p>Now, switch the <strong>Current branch</strong> from <strong>main</strong> to our development branch. Similarily, open the <code>README.md</code> file and add some __different_ text on line 2, such as:</p>
+<pre><code>Status: draft.</code></pre>
 <p><img src="img/m1/0061.png" /></p>
+<p><strong>Commit</strong> these changes to the local repo, but DO NOT push them to the remote repo.</p>
+<p>Similarily to before, we will initiate a merge of our branches.</p>
 <p><img src="img/m1/0062.png" /></p>
+<p>This time, we will merge our <strong>main</strong> branch into the <strong>development</strong> branch, instead of the other way around. This is contrary to common practice but it can be done.</p>
+<p>When we are preparing this merge, we get the following warning:</p>
 <p><img src="img/m1/0063.png" /></p>
+<p>This means that GitHub has detected we have changes in our local branches that conflict with each other. We can still create a merge commit, however we will have to manually resolve this conflict.</p>
+<p>Click on <strong>Create a merge commit</strong> to continue.</p>
+<p>We will be greeted with the following popup once we initiate the merge of our branches. Notice that we cannot “Continue merge” until the conflicts are resolved.</p>
+<p>There are some external tools which can be used for resolving complicated conflicts, however for our purposes we will fix our <code>README.md</code> manually.</p>
+<p>To do this, click on “Open in Visual Studio Code”</p>
 <p><img src="img/m1/0064.png" /></p>
+<p>You will be greeted by a screen that looks similar to the following:</p>
 <p><img src="img/m1/0065.png" /></p>
 <p><img src="img/m1/0066.png" /></p>
 <p><img src="img/m1/0067.png" /></p>
