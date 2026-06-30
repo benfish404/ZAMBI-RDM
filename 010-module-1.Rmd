@@ -209,7 +209,7 @@ We can also see the commit history for our repo
 
 
 ![](img/m1/0021.png) 
-
+On Windows, you may see a yellow warning that line endings have changed from `LF` to `CRLF`. This happens because the `.gitignore` was created with Unix line endings (LF) by GitHub Desktop, but it gets modified use Windows line endings (CRLF) automatically.
 
 
 ![](img/m1/0022.png) 
@@ -225,7 +225,123 @@ We can also see the commit history for our repo
 
 ### Creating a Branch
 
+![](img/m1/0040.png)
 
 
+![](img/m1/0041.png)
+
+![](img/m1/0042.png)
+
+
+``````
+# Project Notes
+
+## Overview
+
+This project provides tools for processing customer data.
+
+## Installation
+
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the application:
+   ```bash
+   npm start
+   ```
+
+## Configuration
+
+Set the following environment variables:
+
+- `API_URL=https://api.example.com`
+- `LOG_LEVEL=info`
+
+## Contributing
+
+Please open an issue before submitting a pull request.
+``````
+
+
+
+
+![](img/m1/0043.png)
+
+You will need to click **publish branch** before switching to another branch, otherwise your local changes will be __brought into the next branch you open__. IF you try to do this on GitHub Desktop, you will get a warning.
 
 ### Merging a Branch
+
+
+
+![](img/m1/0044.png)
+
+
+![](img/m1/0045.png)
+
+![](img/m1/0046.png)
+
+
+![](img/m1/0047.png)
+
+
+![](img/m1/0048.png)
+
+#### Conflict Resolution
+
+![](img/m1/0060.png)
+
+![](img/m1/0061.png)
+
+
+![](img/m1/0062.png)
+
+
+![](img/m1/0063.png)
+
+
+![](img/m1/0064.png)
+
+
+![](img/m1/0065.png)
+
+
+![](img/m1/0066.png)
+
+![](img/m1/0067.png)
+
+
+![](img/m1/0068.png)
+
+
+
+![](img/m1/0069.png)
+
+
+![](img/m1/0070.png)
+
+
+
+
+
+
+
+
+
+
+
+``````
+# Project Notes
+<<<<<<< HEAD
+Status: Draft.
+=======
+Status: in progress...
+>>>>>>> main
+## Overview
+
+This project provides tools for processing customer data.
+
+## Installation
+...
+``````

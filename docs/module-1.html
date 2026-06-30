@@ -292,7 +292,8 @@ Currently, we do not see a diff for this file because it is empty. Let’s add s
 <div id="configuring-.gitignore" class="section level3 hasAnchor">
 <h3>Configuring .gitignore<a href="module-1.html#configuring-.gitignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="img/m1/0020.png" width="400"></p>
-<p><img src="img/m1/0021.png" /></p>
+<p><img src="img/m1/0021.png" />
+On Windows, you may see a yellow warning that line endings have changed from <code>LF</code> to <code>CRLF</code>. This happens because the <code>.gitignore</code> was created with Unix line endings (LF) by GitHub Desktop, but it gets modified use Windows line endings (CRLF) automatically.</p>
 <p><img src="img/m1/0022.png" /></p>
 <p><img src="img/m1/0023.png" /></p>
 <p><img src="img/m1/0024.png" /></p>
@@ -301,10 +302,74 @@ Currently, we do not see a diff for this file because it is empty. Let’s add s
 </div>
 <div id="creating-a-branch" class="section level3 hasAnchor">
 <h3>Creating a Branch<a href="module-1.html#creating-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="img/m1/0040.png" /></p>
+<p><img src="img/m1/0041.png" /></p>
+<p><img src="img/m1/0042.png" /></p>
+<pre><code># Project Notes
+
+## Overview
+
+This project provides tools for processing customer data.
+
+## Installation
+
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the application:
+   ```bash
+   npm start
+   ```
+
+## Configuration
+
+Set the following environment variables:
+
+- `API_URL=https://api.example.com`
+- `LOG_LEVEL=info`
+
+## Contributing
+
+Please open an issue before submitting a pull request.</code></pre>
+<p><img src="img/m1/0043.png" /></p>
+<p>You will need to click <strong>publish branch</strong> before switching to another branch, otherwise your local changes will be <strong>brought into the next branch you open</strong>. IF you try to do this on GitHub Desktop, you will get a warning.</p>
 </div>
 <div id="merging-a-branch" class="section level3 hasAnchor">
 <h3>Merging a Branch<a href="module-1.html#merging-a-branch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="img/m1/0044.png" /></p>
+<p><img src="img/m1/0045.png" /></p>
+<p><img src="img/m1/0046.png" /></p>
+<p><img src="img/m1/0047.png" /></p>
+<p><img src="img/m1/0048.png" /></p>
+<div id="conflict-resolution" class="section level4 hasAnchor">
+<h4>Conflict Resolution<a href="module-1.html#conflict-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="img/m1/0060.png" /></p>
+<p><img src="img/m1/0061.png" /></p>
+<p><img src="img/m1/0062.png" /></p>
+<p><img src="img/m1/0063.png" /></p>
+<p><img src="img/m1/0064.png" /></p>
+<p><img src="img/m1/0065.png" /></p>
+<p><img src="img/m1/0066.png" /></p>
+<p><img src="img/m1/0067.png" /></p>
+<p><img src="img/m1/0068.png" /></p>
+<p><img src="img/m1/0069.png" /></p>
+<p><img src="img/m1/0070.png" /></p>
+<pre><code># Project Notes
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Status: Draft.
+=======
+Status: in progress...
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main
+## Overview
 
+This project provides tools for processing customer data.
+
+## Installation
+...</code></pre>
+
+</div>
 </div>
 </div>
 </div>
